@@ -18,7 +18,7 @@ Feature: WebDriver University - Login Page
     Then I should be presented with the unsuccessful login message
 
   Scenario Outline: Validate - Successful & Unsuccessful Login
-    When I enter a username <username>
+    When I enter a unique username <username>
     And I enter a password <password>
     And I click on the login button
     Then I should be presented with the following login validation message <loginValidationMessage>

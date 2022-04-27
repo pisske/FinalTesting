@@ -13,23 +13,26 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
+import pageObject.Base_PO;
 
 import static driver.DriverFactory.getDriver;
 
-public class Login{
+public class Login extends Base_PO {
  private WebDriver driver = getDriver();
 
     @Given("I access the webdriver university login page")
     public void i_access_the_webdriver_university_login_page() {
-        driver.get("https://www.webdriveruniversity.com/Login-Portal/index.html?");
+        navigateTo_Url("https://www.webdriveruniversity.com/Login-Portal/index.html?");
     }
 
     @When("I enter a username {string}")
     public void i_enter_a_username(String username) {
-        driver.findElement(By.id("text")).sendKeys(username);
+       //driver.findElement(By.id("text")).sendKeys(username);
+        sendKeys(By.id("text"),username);
+
     }
 
-    @When("I enter a username {word}")
+    @When("I enter a unique username {word}")
     public void i_enter_a_unique_username(String username) {
         driver.findElement(By.id("text")).sendKeys(username);
     }
