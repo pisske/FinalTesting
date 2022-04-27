@@ -1,4 +1,4 @@
-@contact @regression
+@contact
 Feature: WebDriver University - Contact Us Page
 
 
@@ -20,3 +20,6 @@ Feature: WebDriver University - Contact Us Page
     And I enter a specific comment "How are you?"
     And I click on the submit button
     Then I should be presented with a successful contact us submission message
+
+
+

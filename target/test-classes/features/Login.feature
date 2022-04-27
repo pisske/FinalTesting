@@ -28,4 +28,3 @@ Feature: WebDriver University - Login Page
       | webdriver | webdriver123 | validation succeeded   |
       | webdriver | webdriver1   | validation failed      |
       | joe_blogs | password1    | validation failed      |
-      |marko      |peric         |validation failed       |

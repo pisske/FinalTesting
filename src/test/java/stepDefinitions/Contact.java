@@ -16,20 +16,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 
+import static driver.DriverFactory.getDriver;
+
 public class Contact{
-    private WebDriver driver;
-
-    @Before
-    public void setup() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-    }
-
-    @After
-    public void tearDown() {
-        driver.quit();
-    }
+  private WebDriver driver = getDriver();
 
     public String generateRandomNumber(int length) {
         return RandomStringUtils.randomNumeric(length);
@@ -71,10 +61,12 @@ public class Contact{
     public void i_enter_a_specific_last_name_blogs(String lastName) {
     driver.findElement(By.xpath("//input[@name=\"last_name\"]")).sendKeys(lastName);
     }
+
     @When("I enter a specific email address {word}")
     public void i_enter_a_specific_email_address_joe_blogs123_mail_com(String email) {
  driver.findElement(By.xpath("//input[@name=\"email\"]")).sendKeys(email);
     }
+
     @When("I enter a specific comment {string}")
     public void i_enter_a_specific_comment(String string) {
      driver.findElement(By.xpath("//textarea[@name=\"message\"]")).sendKeys(string);
@@ -91,4 +83,8 @@ public class Contact{
         WebElement contactUs_Submission_Message = driver.findElement(By.xpath("//div[@id='contact_reply']/h1"));
         Assert.assertEquals(contactUs_Submission_Message.getText(), "Thank You for your Message!");
     }
+
 }
+
+
+

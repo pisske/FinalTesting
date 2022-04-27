@@ -14,20 +14,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 
+import static driver.DriverFactory.getDriver;
+
 public class Login{
-    private WebDriver driver;
-
-    @Before("@login")
-    public void setup() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-    }
-
-    @After("@login")
-    public void tearDown() {
-        driver.quit();
-    }
+ private WebDriver driver = getDriver();
 
     @Given("I access the webdriver university login page")
     public void i_access_the_webdriver_university_login_page() {
