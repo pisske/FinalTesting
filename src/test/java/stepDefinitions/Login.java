@@ -14,37 +14,47 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import pageObject.Base_PO;
+import pageObject.Login_PO;
 
 import static driver.DriverFactory.getDriver;
 
 public class Login extends Base_PO {
+
  private WebDriver driver = getDriver();
+ private Login_PO login;
+
+ public Login(Login_PO login){
+     this.login = login;
+ }
 
     @Given("I access the webdriver university login page")
     public void i_access_the_webdriver_university_login_page() {
-        navigateTo_Url("https://www.webdriveruniversity.com/Login-Portal/index.html?");
+         login.navigateTo_WebDriverUniversity_Login_Page();
     }
 
     @When("I enter a username {string}")
     public void i_enter_a_username(String username) {
        //driver.findElement(By.id("text")).sendKeys(username);
-        sendKeys(By.id("text"),username);
-
+        //sendKeys(By.id("text"),username);
+          login.setUsername(username);
     }
 
     @When("I enter a unique username {word}")
     public void i_enter_a_unique_username(String username) {
-        driver.findElement(By.id("text")).sendKeys(username);
+       driver.findElement(By.id("text")).sendKeys(username);
+
     }
 
     @And("I enter a password {}")
     public void i_enter_a_password(String password) {
-        driver.findElement(By.id("password")).sendKeys(password);
+        // driver.findElement(By.id("password")).sendKeys(password);
+        login.setPassword(password);
     }
 
     @And("I click on the login button")
     public void i_click_on_the_login_button() {
-        driver.findElement(By.id("login-button")).click();
+        //driver.findElement(By.id("login-button")).click();
+        login.buttonClick();
     }
 
     @Then("I should be presented with the successful login message")

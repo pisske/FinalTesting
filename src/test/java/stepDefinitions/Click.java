@@ -1,4 +1,4 @@
-package stepDefinitions.base;
+package stepDefinitions;
 
 import com.fasterxml.jackson.databind.ser.Serializers;
 import io.cucumber.java.en.Given;
