@@ -11,7 +11,7 @@ Feature: WebDriver University - Contact Us Page
     And  I enter a unique comment
     And I click on the submit button
     Then I should be presented with a successful contact us submission message
-
+  @smoke
   Scenario: Validate Successful Submission - Specific Data
     Given I access the webdriver university contact us page
     When I enter a specific first name joe
