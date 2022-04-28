@@ -16,6 +16,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import pageObject.Base_PO;
+import pageObject.Contact_PO;
 
 import static driver.DriverFactory.getDriver;
 
@@ -23,32 +24,41 @@ public class Contact extends Base_PO {
   private WebDriver driver = getDriver();
 
 
+   private Contact_PO contact;
+   public Contact (Contact_PO contact){
+       this.contact = contact;
+   }
+
 
     @Given("I access the webdriver university contact us page")
     public void i_access_the_webdriver_university_contact_us_page() {
-        navigateTo_Url("https://webdriveruniversity.com/Contact-Us/contactus.html");
+      contact.navigateTo_WebDriverUniversity_Contact_Page();
     }
 
     @When("I enter a unique first name")
     public void i_enter_a_unique_first_name() {
         //wait for element be clickable
       //  driver.findElement(By.xpath("//input[@name='first_name']")).sendKeys("AutoFN" + generateRandomNumber(5));
-   sendKeys(By.xpath("//input[@name='first_name']"),"AutoFN"+generateRandomNumber(5));
+   //sendKeys(By.xpath("//input[@name='first_name']"),"AutoFN"+generateRandomNumber(5));
+       contact.setUnique_FirstName();
     }
 
     @And("I enter a unique last name")
     public void i_enter_a_unique_last_name() {
-        driver.findElement(By.xpath("//input[@name=\"last_name\"]")).sendKeys("AutoLN" + generateRandomNumber(5));
+       // driver.findElement(By.xpath("//input[@name=\"last_name\"]")).sendKeys("AutoLN" + generateRandomNumber(5));
+        contact.setUnique_LastName();
     }
 
     @And("I enter a unique email address")
     public void i_enter_a_unique_email_address() {
-        driver.findElement(By.xpath("//input[@name=\"email\"]")).sendKeys("AutoEmail" + generateRandomNumber(10) + "@mail.com");
+        //driver.findElement(By.xpath("//input[@name=\"email\"]")).sendKeys("AutoEmail" + generateRandomNumber(10) + "@mail.com");
+      contact.setUnique_Address();
     }
 
     @And("I enter a unique comment")
     public void i_enter_a_unique_comment() {
-        driver.findElement(By.xpath("//textarea[@name=\"message\"]")).sendKeys("Hello world " + generateRandomString(20));
+       // driver.findElement(By.xpath("//textarea[@name=\"message\"]")).sendKeys("Hello world " + generateRandomString(20));
+        contact.setUniqueComment();
     }
     @When("I enter a specific first name {word}")
     public void i_enter_a_specific_first_name(String firstName) {
