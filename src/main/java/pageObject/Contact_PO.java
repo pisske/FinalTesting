@@ -1,5 +1,6 @@
 package pageObject;
 
+import dev.failsafe.internal.util.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -13,6 +14,10 @@ public class Contact_PO extends Base_PO{
     WebElement email_Address;
     private @FindBy(xpath="//textarea[@name=\"message\"]")
     WebElement specific_Comment;
+    private @FindBy(xpath="//input[@value=\"SUBMIT\"]")
+    WebElement click_on_button;
+    private @FindBy(xpath="//div[@id='contact_reply']/h1")
+     WebElement SuccessfulSubmission_Message;
     public Contact_PO(){
         super();
     }
@@ -32,7 +37,26 @@ public class Contact_PO extends Base_PO{
    public void setUniqueComment(){
         sendKeys(specific_Comment,"Hello world"+generateRandomString(20));
    }
+public void setSpecific_FirstName(String firstName){
 
+    sendKeys(firstName_Text,firstName);
+}
+public void setSpecific_LastName(String lastName){
+        sendKeys(lastName_Text,lastName);
+}
+public void setSpecific_Email(String email){
+        sendKeys(email_Address,email);
+}
+public void setSpecific_Comment(String string){
+        sendKeys(specific_Comment,string) ;
+}
+public void clickOn_SubmitButton(){
+        waitForWebElementAndClick(click_on_button);
+}
+//public void validate_Successful_SubmissionMessage_Text(){
+//         waitFor(SuccessfulSubmission_Message);
+//         Assert.assertEquals(SuccessfulSubmission_Message.getText(),"Thank You for your Message!")  ;
+//}
 }
 
 

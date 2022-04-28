@@ -62,27 +62,32 @@ public class Contact extends Base_PO {
     }
     @When("I enter a specific first name {word}")
     public void i_enter_a_specific_first_name(String firstName) {
-      driver.findElement(By.xpath("//input[@name='first_name']")).sendKeys(firstName);
+    //  driver.findElement(By.xpath("//input[@name='first_name']")).sendKeys(firstName);
+        contact.setSpecific_FirstName(firstName);
     }
     @When("I enter a specific last name {word}")
     public void i_enter_a_specific_last_name_blogs(String lastName) {
-    driver.findElement(By.xpath("//input[@name=\"last_name\"]")).sendKeys(lastName);
+    //driver.findElement(By.xpath("//input[@name=\"last_name\"]")).sendKeys(lastName);
+        contact.setSpecific_LastName(lastName);
     }
 
     @When("I enter a specific email address {word}")
     public void i_enter_a_specific_email_address_joe_blogs123_mail_com(String email) {
- driver.findElement(By.xpath("//input[@name=\"email\"]")).sendKeys(email);
+     //driver.findElement(By.xpath("//input[@name=\"email\"]")).sendKeys(email);
+     contact.setSpecific_Email(email);
     }
 
     @When("I enter a specific comment {string}")
     public void i_enter_a_specific_comment(String string) {
-     driver.findElement(By.xpath("//textarea[@name=\"message\"]")).sendKeys(string);
+     //driver.findElement(By.xpath("//textarea[@name=\"message\"]")).sendKeys(string);
+     contact.setSpecific_Comment(string);
     }
 
 
     @And("I click on the submit button")
     public void i_click_on_the_submit_button() {
-        driver.findElement(By.xpath("//input[@value=\"SUBMIT\"]")).click();
+       // driver.findElement(By.xpath("//input[@value=\"SUBMIT\"]")).click();
+        contact.clickOn_SubmitButton();
     }
 
     @Then("I should be presented with a successful contact us submission message")
