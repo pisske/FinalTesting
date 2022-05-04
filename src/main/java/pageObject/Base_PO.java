@@ -1,6 +1,6 @@
 package pageObject;
 
-import dev.failsafe.internal.util.Assert;
+
 import driver.DriverFactory;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
@@ -10,7 +10,9 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import utils.Global_Vars;
+
 ;
 import java.time.Duration;
 
@@ -58,6 +60,13 @@ public class Base_PO {
     public void waitForWebElementAndCheck(WebElement element) {
         WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(Global_Vars.DEFAULT_EXPLICIT_TIMEOUT));
         wait.until(ExpectedConditions.elementToBeClickable(element)).isSelected();
+    }
+
+    public void waitForAlert_And_Validate_Text(String text){
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(Global_Vars.DEFAULT_EXPLICIT_TIMEOUT));
+        wait.until(ExpectedConditions.alertIsPresent());
+        String alert_Message_Text = getDriver().switchTo().alert().getText();
+        Assert.assertEquals(alert_Message_Text,text);
     }
 
     public void waitFor(By by){

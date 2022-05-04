@@ -1,11 +1,10 @@
 package pageObject;
 
 
-
-import dev.failsafe.internal.util.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import utils.Global_Vars;
+import org.testng.Assert;
 
 public class Contact_PO extends Base_PO {
     private @FindBy(xpath = "//input[@name='first_name']")
@@ -19,8 +18,7 @@ public class Contact_PO extends Base_PO {
     WebElement specific_Comment;
     private @FindBy(xpath = "//input[@value=\"SUBMIT\"]")
     WebElement click_on_button;
-    private @FindBy(xpath = "//div[@id='contact_reply']/h1")
-    WebElement SuccessfulSubmission_Message;
+
     private @FindBy(xpath = "//div[@id='contact_reply']/h1")
     WebElement successfulSubmission_Message_Text;
 
@@ -69,8 +67,8 @@ public class Contact_PO extends Base_PO {
         waitForWebElementAndClick(click_on_button);
     }
 
-//    public void validate_Successful_SubmissionMessage_Text() {
-//        waitFor(successfulSubmission_Message_Text);
-//        Assert.assertEquals(successfulSubmission_Message_Text.getText(), "Thank You for your Message!");
-//    }
+   public void validate_Successful_SubmissionMessage_Text() {
+     Assert.assertEquals(successfulSubmission_Message_Text.getText(), "Thank You for your Message!");
+
+  }
 }

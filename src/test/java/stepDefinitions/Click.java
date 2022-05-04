@@ -33,9 +33,10 @@ public class Click extends Base_PO {
     }
     @Then("I should be presented with a successful click message")
     public void i_should_be_presented_with_a_successful_click_message() throws InterruptedException {
-
-        WebElement contactUs_Submission_Message = driver.findElement(By.xpath("//*[@id='myModalClick']/div/div/div[1]/h4"));
-        Thread.sleep(2000);
-        Assert.assertEquals(contactUs_Submission_Message.getText(), "Congratulations!");
+//
+//        WebElement contactUs_Submission_Message = driver.findElement(By.xpath("//*[@id='myModalClick']/div/div/div[1]/h4"));
+//        Thread.sleep(2000);
+//        Assert.assertEquals(contactUs_Submission_Message.getText(), "Congratulations!");
+        click.validate_Successful_SubmissionMessage();
     }
 }
