@@ -10,24 +10,22 @@ import pageObject.CheckBox_PO;
 public class CheckBox extends Base_PO {
     private WebDriver driver = getDriver();
 
-    private CheckBox_PO dropdown;
+    public CheckBox_PO check;
 
-    public CheckBox(CheckBox_PO dropdown){
-         this.dropdown=dropdown;
+    public CheckBox(CheckBox_PO check){
+        this.check = check;
+    }
+    @Given("I access the webdriver university DropDown,CheckBox&RadioButton page")
+    public void i_access_the_webdriver_university_drop_down_check_box_radio_button_page() {
+       check.navigate_To_WebDriver_CheckBoxPage();
+    }
+    @When("I click on checkbox element option2")
+    public void i_click_on_checkbox_element_option2() {
+     check.clickOnCheckBox();
     }
 
+    @Then("I should be checked all check box elements")
+    public void i_should_be_checked_all_check_box_elements() {
 
-    @Given("I access the webdriver university dropdown page")
-    public void i_access_the_webdriver_university_dropdown_page() {
-    dropdown.navigateTo_WebDriverUniversity_DropDown();
-    }
-    @When("I select first  dropdown menu")
-    public void i_select_first_dropdown_menu() {
-     dropdown.clickOnTheCheckBox();
-    }
-
-    @Then("I should be checked if element is clicked")
-    public void i_should_be_checked_if_element_is_clicked() {
-     dropdown.checkIfElementChecked();
     }
 }

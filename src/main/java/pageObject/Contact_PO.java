@@ -68,6 +68,7 @@ public class Contact_PO extends Base_PO {
     }
 
    public void validate_Successful_SubmissionMessage_Text() {
+       waitFor(successfulSubmission_Message_Text);
      Assert.assertEquals(successfulSubmission_Message_Text.getText(), "Thank You for your Message!");
 
   }

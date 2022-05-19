@@ -1,9 +1,9 @@
-@dropdown
-Feature: WebDriver University - DropDown
+@checkbox
+Feature: WebDriver University - DropDown,CheckBox,RadioButton
 
 
 
-  Scenario:  Validate Successful dropdown menu
-    Given I access the webdriver university dropdown page
-    When I select first  dropdown menu
-    Then I should be checked if element is clicked
+  Scenario:  Validate Successful checked element in checkbox
+    Given I access the webdriver university DropDown,CheckBox&RadioButton page
+    When I click on checkbox element option2
+    Then I should be checked all check box elements
