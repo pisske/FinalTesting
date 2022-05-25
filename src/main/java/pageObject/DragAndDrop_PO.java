@@ -13,6 +13,8 @@ public class DragAndDrop_PO extends Base_PO{
     WebElement dropElement;
     private @FindBy(xpath="/html/body/div/div[2]/div/div[2]/p")
     WebElement successfulMessage;
+    private @FindBy(xpath="/html/body/div/div[3]/div/div/h2")
+    WebElement doubleClick;
 
     public DragAndDrop_PO(){
         super();
@@ -29,5 +31,10 @@ public class DragAndDrop_PO extends Base_PO{
         waitFor(successfulMessage);
      Assert.assertEquals(successfulMessage.getText(), "Dropped!");
 
+    }
+
+    public void double_Click_On_An_Element(){
+        Actions action = new Actions(getDriver());
+        action.doubleClick(doubleClick).perform();
     }
 }

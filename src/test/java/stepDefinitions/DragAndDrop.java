@@ -25,6 +25,11 @@ public class DragAndDrop extends Base_PO {
     public void i_have_to_go_on_drag_element() {
  drop.drag_And_Drope_Element();
     }
+    @Given("I have to double click on element")
+    public void i_have_to_double_click_on_element() {
+
+    drop.double_Click_On_An_Element();
+    }
     @Then("I should be presented with a message {string}")
     public void i_should_be_presented_with_a_message(String string) {
      drop.validate_Drop_And_Down_Message();
